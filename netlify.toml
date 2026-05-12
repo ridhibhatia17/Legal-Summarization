@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[context.production.environment]
+# Set `GEMINI_API_KEY` in Netlify UI (do NOT commit secrets to the repo)
+# GEMINI_API_KEY = "your_api_key_here"

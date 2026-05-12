@@ -1,0 +1,18 @@
+FROM node:18-slim
+
+WORKDIR /app
+
+# Install only production dependencies
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
+
+# Copy source
+COPY . ./
+
+ENV NODE_ENV=production
+
+# Expose Genkit dev UI and telemetry ports (defaults used by Genkit)
+EXPOSE 4000 4033
+
+# Start the Genkit server (use npx to run the local CLI)
+CMD ["npx", "genkit", "start", "--", "tsx", "src/ai/dev.ts"]
