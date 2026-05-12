@@ -5,3 +5,6 @@
 [context.production.environment]
 # Set `GEMINI_API_KEY` in Netlify UI (do NOT commit secrets to the repo)
 # GEMINI_API_KEY = "your_api_key_here"
+# Workaround for peer dependency conflict during `npm install` in Netlify
+# This tells Netlify to pass `--legacy-peer-deps` to `npm ci`.
+NPM_FLAGS = "--legacy-peer-deps"
